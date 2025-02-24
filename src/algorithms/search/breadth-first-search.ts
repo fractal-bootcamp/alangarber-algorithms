@@ -4,7 +4,7 @@ export function breadthFirstSearch<T>(array: UnknownDepthArray<T>[], searchTerm:
     const queue: UnknownDepthArray<T>[] = [...array];
     for (let i = 0; i < queue.length; i++) {
         if (!Array.isArray(queue[i])) {
-            if (queue[i] == searchTerm) {
+            if (queue[i] === searchTerm) {
                 return searchTerm;
             }
         } else {

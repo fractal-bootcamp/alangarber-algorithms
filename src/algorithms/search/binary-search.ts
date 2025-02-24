@@ -11,7 +11,7 @@ export function binarySearch<T>(array: T[], searchTerm: T, sortingFunction: (arr
         const pivot: T = array[Math.floor(array.length / 2)];
         const leftHalf: T[] = array.slice(0, Math.floor(array.length / 2));
         const rightHalf: T[] = array.slice(Math.floor(array.length / 2) + 1);
-        if (pivot == searchTerm) {
+        if (pivot === searchTerm) {
             return searchTerm;
         }
         else if (pivot > searchTerm) {

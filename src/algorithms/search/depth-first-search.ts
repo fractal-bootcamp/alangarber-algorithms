@@ -8,7 +8,7 @@ export function depthFirstSearch<T>(array: UnknownDepthArray<T>[], searchTerm: T
 
         for (let i = 0; i < array.length; i++) {
             if (!Array.isArray(array[i])) {
-                if (array[i] == searchTerm) {
+                if (array[i] === searchTerm) {
                     return searchTerm;
                 } 
             } else {
