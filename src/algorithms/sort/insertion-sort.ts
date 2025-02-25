@@ -1,19 +1,18 @@
 export function insertionSort<T>(array: T[]) {
-  const sortedArray: T[] = [array[0]];
+  const sortedArray: T[] = [];
 
-  for (let i = 1; i < array.length; i++) {
-    if (array[i] < sortedArray[0]) {
-      sortedArray.unshift(array[i]);
-    } else if (array[i] > sortedArray[sortedArray.length - 1]) {
-      sortedArray.push(array[i]);
-    } else {
-      for (let j = 1; j < sortedArray.length; j++) {
-        if (array[i] < sortedArray[j]) {
-          sortedArray.splice(j, 0, array[i]);
-          break;
-        }
-      }
+  // for each ELEMENT
+  for (let i = 0; i < array.length; i++) {
+    // FIND THE SPOT IN sortedArray where it belongs
+    let spot = 0;
+    while (spot < sortedArray.length) {
+      const elementCantMoveFurther = sortedArray[spot] >= array[i];
+      if (elementCantMoveFurther) break;
+      spot++;
     }
+    // put that ELEMENT in the SPOT it belongs.
+    sortedArray[spot] = array[i];
   }
+
   return sortedArray;
 }

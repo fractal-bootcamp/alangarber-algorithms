@@ -2,22 +2,20 @@ export function selectionSort<T>(array: T[]) {
   const newArray: T[] = [...array];
   const sortedArray: T[] = [];
 
-  function checkArray(array: T[]) {
-    let min: T = array[0];
+  // using as a closure because I wanrt it to directly splice newArray
+  function findAndRemoveMin(array: T[]) {
     let minIndex: number = 0;
     for (let i = 0; i < array.length; i++) {
-      if (array[i] < min) {
-        min = array[i];
+      if (array[i] < array[minIndex]) {
         minIndex = i;
       }
     }
-    array.splice(minIndex, 1);
-    return min;
+    return array.splice(minIndex)[0];
   }
 
   for (let j = 0; j < array.length; j++) {
-    const result: T = checkArray(newArray);
-    sortedArray.push(result);
+    const min: T = findAndRemoveMin(newArray);
+    sortedArray.push(min);
   }
 
   return sortedArray;

@@ -1,18 +1,17 @@
-type UnknownDepthArray<T> = T | UnknownDepthArray<T>[];
+type NestedArray<T> = Array<T | NestedArray<T>>;
 
 export function breadthFirstSearch<T>(
-  array: UnknownDepthArray<T>[],
+  array: NestedArray<T>,
   searchTerm: T,
 ): T | undefined {
-  const queue: UnknownDepthArray<T>[] = [...array];
+  const queue = [...array];
   for (let i = 0; i < queue.length; i++) {
-    if (!Array.isArray(queue[i])) {
-      if (queue[i] === searchTerm) {
-        return searchTerm;
-      }
+    const ele = queue[i];
+    if (Array.isArray(ele)) {
+      queue.push(...ele);
     } else {
-      for (let j = 0; j < (queue[i] as UnknownDepthArray<T>[]).length; j++) {
-        queue.push((queue[i] as UnknownDepthArray<T>[])[j]);
+      if (ele === searchTerm) {
+        return searchTerm;
       }
     }
   }
