@@ -43,8 +43,7 @@ const Navbar = ({ toggle }: { toggle: () => void }) => {
                 </Link>
               </li>
             </ul>
-            <div className="hidden md:block">
-            </div>
+            <div className="hidden md:block"></div>
           </div>
         </div>
       </div>

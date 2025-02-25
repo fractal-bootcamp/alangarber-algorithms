@@ -47,8 +47,7 @@ const Logo = () => {
         style={{
           display: showButton ? "block" : "none",
         }}
-      >
-      </div>
+      ></div>
     </>
   );
 };

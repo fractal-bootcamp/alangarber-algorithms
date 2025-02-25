@@ -5,9 +5,7 @@ export default function Home() {
         <h1>Hello word</h1>
         <p>This is a content to make our page longer</p>
         <div className="w-full h-screen bg-green-300"></div>
-        <p>
-          Lorem Ipsum is simply dummy text ...
-        </p>
+        <p>Lorem Ipsum is simply dummy text ...</p>
       </div>
     </>
   );
