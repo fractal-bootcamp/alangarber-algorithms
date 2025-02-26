@@ -4,7 +4,10 @@ import React, { useState } from "react";
 
 const BubbleSortPage = () => {
   const [array, setArray] = useState<number[]>([]);
-  const [highlighted, setHighlighted] = useState<{ first: number | null; second: number | null }>({
+  const [highlighted, setHighlighted] = useState<{
+    first: number | null;
+    second: number | null;
+  }>({
     first: null,
     second: null,
   });
@@ -18,7 +21,8 @@ const BubbleSortPage = () => {
       .split(",")
       .map((num: string) => num.trim()) // Trim first
       .filter((num: string) => num !== "") // Remove empty strings
-      .map((num: string) => parseInt(num, 10)); // Convert to numbers
+      .map((num: string) => parseInt(num, 10))
+      .filter((num: number) => !isNaN(num)); // Convert to numbers
 
     setArray(parsedArray);
     setHighlighted({ first: null, second: null });
@@ -98,8 +102,8 @@ const BubbleSortPage = () => {
               highlighted.first === idx || highlighted.second === idx
                 ? "bg-yellow-400"
                 : sorted
-                ? "bg-green-500"
-                : "bg-gray-200"
+                  ? "bg-green-500"
+                  : "bg-gray-200"
             }`}
           >
             {num}

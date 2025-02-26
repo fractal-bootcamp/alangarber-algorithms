@@ -15,7 +15,8 @@ const LinearSearchPage = () => {
       .split(",")
       .map((num: string) => num.trim()) // Trim first
       .filter((num: string) => num !== "") // Remove empty strings
-      .map((num: string) => parseInt(num, 10)); // Convert to numbers
+      .map((num: string) => parseInt(num, 10))
+      .filter((num: number) => !isNaN(num)); // Convert to numbers
 
     setArray(parsedArray);
     setHighlighted(null);
@@ -106,10 +107,10 @@ const LinearSearchPage = () => {
           <div
             key={idx}
             className={`w-12 h-12 flex items-center justify-center border rounded text-lg text-black ${
-              highlighted === idx
-                ? "bg-yellow-400"
-                : foundIndex === idx
-                  ? "bg-green-500"
+              foundIndex === idx
+                ? "bg-green-500"
+                : highlighted === idx
+                  ? "bg-yellow-400"
                   : "bg-gray-200"
             }`}
           >
